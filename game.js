@@ -57,9 +57,11 @@ function answer(a) {
 
 
 
-   if (selected_answer == answer_3) {
+   if (selected_answer == answer_3) { //right answer
        document.getElementById('wrong-answer').classList.add('d-none');
        document.getElementById('right-answer').classList.remove('d-none');
+       // show next button 
+       document.getElementById('next-btn').classList.remove('d-none');
       
       }   else {
 
