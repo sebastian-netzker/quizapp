@@ -26,6 +26,16 @@
 
     <h1>The awesome HTML Quiz !</h1>
 
+    <div id="quiz-finish-container" class="d-none">
+      <h2>You won !</h2>
+
+
+      <img class="firework" src="img/firework.jpg" alt="">
+
+    </div>
+
+    <div id="quiz-container">
+
 
     <div id="right-answer"class="alert alert-success d-none" role="alert">
   Deine Antwort war richtig!
@@ -42,6 +52,9 @@
 
 
     <div class="card">
+      <div class="progress">
+  <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" >25%</div>
+</div>
   <div class="card-body" id="question">
     In diesem Abschnitt wird eine Frage gestellt!!
   </div>
@@ -50,18 +63,28 @@
 
 <div class="mt-4">
 
-    <button onclick="answer(1)"  id="answer1"  class="btn btn-outline-primary">Antwort A</button>
 
-    <button onclick="answer(2)" id="answer2"class="btn btn-outline-primary">Antwort B</button>
+  <div class="quiz-answer-row">
+<button onclick="answer(1)"  id="answer1"  class="btn btn-outline-primary">Antwort A</button>
 
+<button onclick="answer(2)" id="answer2"class="btn btn-outline-primary">Antwort B</button>
+
+  </div>
+
+  <div class="quiz-answer-row mt-4">
     <button onclick="answer(3)" id="answer3" class="btn btn-outline-primary">Antwort C</button>
 
     <button onclick="answer(4)" id="answer4"class="btn btn-outline-primary">Antwort D</button>
 
 </div>
+  
+   
 
-<div class="mt-4 d-none">
-  <button id="next-btn" class="btn btn-info">Nächste Frage</button>
+</div>
+
+<div class="mt-4">
+  <button onclick="nextQuestion()" id="next-btn" class="btn btn-info d-none">Nächste Frage</button>
+</div>
 </div>
 
 

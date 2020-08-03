@@ -30,3 +30,20 @@ body{
 
 
 }
+
+
+.quiz-answer-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz-answer-row button{
+    width: 40%;
+    height: 80px;
+
+}
+
+.firework{
+    width: 500px;
+    
+}
