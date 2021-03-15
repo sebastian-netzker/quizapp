@@ -1,111 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizapp</title>
 
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="game.js"></script>
+    <script src="variable.js"></script>
+ 
 
-    <script src="game.js"> 
+  </head>
+
+ 
+  <body onload="ShowHeadline()">
+    <div class="container">
+      <div class="container-left">
+        <div class="menu-container">
+          <img src="img/quiz_app_1.png" alt="" />
+          <a class="menu-link first-link menu-link-selected">
+            HTML
+          </a>
+
+          <a class="menu-link">
+            CSS
+          </a>
+
+          <a class="menu-link">
+            JS
+          </a>
+
+          <a class="menu-link">
+            JAVA
+          </a>
+      
+        </div>
+      </div>
+      <div class="container-right">
+          <div id="brain-img" class="background-image">
+
+    
+            <img src="img/brain_bg1.png" alt="">
+
+          </div>
+          <div id="main-quiz">
+               <div id="progress_bar" class="progress d-none" >
+   <div  id="progress_bar2" class="progress-bar  " role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"> </div>
+  </div>
+    
+   <div>
+     <img onclick="openSidemenu()" src="img/bars-solid.svg"  class=" img-sidemenu" alt="">
+   </div>
+
+   <div id="links" class="links">
+     <img onclick="closeSidemenu()" src="img/bars-solid.svg"  class=" img-sidemenu" alt="">
 
 
 
-    </script>
-</head>
-<body onload="nextQuestion()" >
-
-  <nav class="navbar navbar-light bg-dark navbar-custom">
-  <a class="navbar-brand" href="#">
-    <img src="img/question.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    HTML Quiz
-  </a>
-</nav>
-
-    <h1>The awesome HTML Quiz !</h1>
-
-    <div id="quiz-finish-container" class="d-none">
-      <h2>You won !</h2>
+    <a href="#">HTML</a>
+    <a href="#">CSS</a>
+    <a href="#">JS</a>
+    <a href="#">JAVA</a>
 
 
-      <img class="firework" src="img/firework.jpg" alt="">
+
+   </div>
+      
+          <div id="quiz-description" class="quiz-description">
+              <h1>Welcome to the awesome HTML QUIZ</h1>
+
+              <span  class="headline-sub">Ready for the Challenge? </span>
+
+          </div>
+
+     
+
+          <div id="question" class="question change_font_size d-none">
+
+
+
+      <h4>In diesem Abschnitt wird eine Frage gestellt !</h4>
+    </div>
+
+            <div id="buttons" class="buttons d-none">
+
+      <button onclick="answer1(1) ; question_tries()"  id="answer-1" type="button" class="btn btn1  btn-outline-primary"> <div class="answer_1">  <p >A</p> <p class="p_answer_A"> Antwort A</p></div></button>
+
+      <button onclick="answer2(2) ; question_tries()" id="answer-2" type="button" class="btn btn2 btn-outline-primary "> <div class="answer_2"><p>B</B></p><p class="p_answer_B">Antwort B</p></div>  </button>
+
+      <button onclick="answer3(3) ; question_tries()" id="answer-3" type="button" class="btn btn3 btn-outline-primary "> <div class="answer_3"><p>C</p><p class="p_answer_C">Antwort C</p></div>  </button>
+
+      <button onclick="answer4(4) ; question_tries()" id="answer-4" type="button" class="btn btn4 btn-outline-primary "> <div class="answer_4"><p>D</p><p class="p_answer_D">Antwort D</p></div>  </button>
+
 
     </div>
 
-    <div id="quiz-container">
-
-
-    <div id="right-answer"class="alert alert-success d-none" role="alert">
-  Deine Antwort war richtig!
-</div>
-
-<div id="wrong-answer" class="alert alert-danger d-none" role="alert">
-  Deine Antwort war leider falsch!
-</div>
-
-    
-
-    
-
-
-
-    <div class="card">
-      <div class="progress">
-  <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" >25%</div>
-</div>
-  <div class="card-body" id="question">
-    In diesem Abschnitt wird eine Frage gestellt!!
-  </div>
-</div>
-
-
-<div class="mt-4">
-
-
-  <div class="quiz-answer-row">
-<button onclick="answer(1)"  id="answer1"  class="btn btn-outline-primary">Antwort A</button>
-
-<button onclick="answer(2)" id="answer2"class="btn btn-outline-primary">Antwort B</button>
-
-  </div>
-
-  <div class="quiz-answer-row mt-4">
-    <button onclick="answer(3)" id="answer3" class="btn btn-outline-primary">Antwort C</button>
-
-    <button onclick="answer(4)" id="answer4"class="btn btn-outline-primary">Antwort D</button>
-
-</div>
+     <div >
+  <button onclick="nextQuestion()" id="next-btn" class="btn btn-info btn-next btn-lg d-none">Next Question
   
-   
+  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
+  <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+</svg>
+  
+  
+  </button>
 
+
+
+
+  <button onclick="lastQuestion()" id="last-question-btn" class="btn btn-info btn-last-question btn-lg  d-none"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+  <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
+</svg>
+  
+  Last Question</button>
 </div>
 
-<div class="mt-4">
-  <button onclick="nextQuestion()" id="next-btn" class="btn btn-info d-none">Nächste Frage</button>
-</div>
-</div>
+        <button id="button-start" class="button_startnow btn btn-warning btn-lg " onclick="StartQuiz()">START NOW
+            
+          
+          
+          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+</svg>
+          
+          
+          
+          
+          </button>
+      </div>
+         <div id="finish-quiz-container"  class="finish-quiz d-none" >
+
+    <img class="circle_img " src="img/kreis.png" alt="">
+
+    <img class="brainscore_img"    src="img/brain_score_logo2.png" alt="">
+
+    <p class="p1-finish">Complete HTML Quiz</p>
+
+    <p class="p2-finish">Your Score   </p>
+
+    <p id="p3_finish" class="p3-finish"> x    </p>
+
+    <p id="p4_finish" class="p4-finish"> y</p>
 
 
+    <button onclick="Restartquiz()" class="btn-finish btn btn-warning btn-lg">Replay</button>
 
-<!-- Footer -->
-<footer class="page-footer font-small bg-dark footer-custom">
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://developerakademie.com/" target="_blank"> Developer Akademie</a>
   </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-    
 
     
-
-
-
+        </div>
+      </div>
     
-</body>
+    </div>
+    
+  </body>
 </html>
